@@ -9,6 +9,7 @@ body {
   display: flex;
   min-height: 100vh;
   background-color: #FAF1E6;
+  color: #273F4F;
 }
 
 input {

@@ -12,7 +12,7 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`https://api.tvmaze.com/search/shows?q=${searchTerm}&limit=10`)
+    fetch(`https://api.tvmaze.com/search/shows?q=${searchTerm}&limit=12`)
       .then((response) => {
         return response.json();
       })
