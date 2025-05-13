@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 import SearchBar from "./components/SearchBar";
 import TvShowList from "./components/TvShowList";
-
+import { getShows } from "../api";
 
 function App() {
   const [tvShows, setTvShows] = useState([]);
@@ -12,21 +12,29 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`https://api.tvmaze.com/search/shows?q=${searchTerm}&limit=12`)
-      .then((response) => {
-        return response.json();
-      })
-      .then((body) => {
-        console.log(body);
-        setTvShows(body);
+    getShows(searchTerm)
+      .then((result) => {
+        setTvShows(result);
         setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
       });
   }, [searchTerm]);
+
+  function handleClick(event) {
+    event.preventDefault();
+    setLoading(true);
+    getShows(searchTerm).then((result) => {
+      setTvShows(result);
+      setLoading(false);
+    });
+  }
 
   return (
     <>
       <h1>TV SERIES INFO</h1>
-      <SearchBar setSearchTerm={setSearchTerm} />
+      <SearchBar setSearchTerm={setSearchTerm} handleClick={handleClick} />
       {loading ? <h3>Loading...</h3> : <TvShowList tvShows={tvShows} />}
     </>
   );

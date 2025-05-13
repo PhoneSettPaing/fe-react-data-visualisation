@@ -1,4 +1,4 @@
-function SearchBar({ setSearchTerm }) {
+function SearchBar({ setSearchTerm, handleClick }) {
   function handleChange(event) {
     setSearchTerm(event.target.value);
   }
@@ -8,8 +8,11 @@ function SearchBar({ setSearchTerm }) {
       <input
         type="text"
         onChange={handleChange}
-        placeholder="&#128270;   Search for Tv Serie..."
+        placeholder="   Search for Tv Series..."
       />
+      <button className="search-button" onClick={handleClick}>
+        &#128270;
+      </button>
     </form>
   );
 }

@@ -9,7 +9,10 @@ function TvShowCard({
   showRating,
   showSummary,
 }) {
-  const sanitizedSummary = DOMPurify.sanitize(showSummary);
+  // const sanitizedSummary = DOMPurify.sanitize(showSummary);
+  // function openSummary() {
+  //   window.open("../../summary.html", "_blank")
+  // }
 
   return (
     <Card style={{ width: "20rem", height: "30rem" }}>

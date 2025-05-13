@@ -1,21 +1,7 @@
-#root {
-  margin: 0;
-  width: 100%;
-  padding: 2rem;
-  text-align: center;
-}
-
-body {
-  display: flex;
-  min-height: 100vh;
-  background-color: #FAF1E6;
-  color: #273F4F;
-}
-
 input {
   width: 400px;
   height: 30px;
-  margin: 20px;
+  margin: 20px 5px;
   border-radius: 5px;
   border: 1px solid;
 }
@@ -23,4 +9,9 @@ input {
 img {
   width: 100px;
   height: 300px;
+}
+
+.search-button {
+  border: 1px solid;
+  border-radius: 5px;
 }
